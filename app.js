@@ -7,10 +7,10 @@ const openai = new OpenAI({
     apikey: process.env.OPENAI_API_KEY
 });
 
-
+// Создание ассистента
 // const assistant = await openai.beta.assistants.create({
-//     name: "Economics Tutor",
-//     instructions: "You are an economics tutor",
+//     name: "Экономический Репетитор",
+//     instructions: "Вы экономический репетитор",
 //     tools: [
 //       {
 //         type: "code_interpreter"
@@ -18,35 +18,34 @@ const openai = new OpenAI({
 //     ],
 //     model: "gpt-4-1106-preview"
 //   });
-  
-// Accessing the assistant
+
+// Доступ к ассистенту
 const assistant = await openai.beta.assistants.retrieve("asst_CjvyFIeraCLKB8NTAqF0FhqG");
 
-
-// Threads
-// // Create Thread
+// Потоки
+// Создание потока
 // const thread = await openai.beta.threads.create();
 
-// // Create a new message 
+// Создание нового сообщения
 // const message = await openai.beta.threads.messages.create(thread.id, {
 //     role: "user",
 //     content: "Здрасте",
 // });
 
-// // Run assistant
+// Запуск ассистента
 // const run = await openai.beta.threads.runs.create(thread.id, {
 //     assistant_id: assistant.id,
-//     instructions: "Adress user as Lionel Messi",
+//     instructions: "Обращаться к пользователю как к Лионелю Месси",
 // });
 
-// Get status of run - need to store it in the database and retrieve it
+// Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
 const run = await openai.beta.threads.runs.retrieve(
-    "thread_dP3QRK85tkSUpsopX4LunFLA", // this is a thread id
-    "run_8wUdenkwI3odAQFXFSRO3QeJ" // this is a run id
+    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
 );
 
 // const messages = await openai.beta.threads.messages.list(
-//     "thread_dP3QRK85tkSUpsopX4LunFLA" // this is a thread id
+//     "thread_dP3QRK85tkSUpsopX4LunFLA" // это идентификатор потока
 // );
 
 // messages.body.data.forEach((message) => {
@@ -54,8 +53,8 @@ const run = await openai.beta.threads.runs.retrieve(
 // });
 
 const logs = await openai.beta.threads.runs.steps.list(
-    "thread_dP3QRK85tkSUpsopX4LunFLA", // this is a thread id
-    "run_8wUdenkwI3odAQFXFSRO3QeJ" // this is a run id
+    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
 );
 
 logs.body.data.forEach((log) => {
