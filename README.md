@@ -132,33 +132,37 @@ console.log(run);
 ## Получение статуса выполнения
 
 ```javascript
-
-
-## Запросы и логи
-
-```javascript
 // Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
 const run = await openai.beta.threads.runs.retrieve(
-    "thread_dP3QRK85tkSUpsopX4LunFLA",
-    "run_8wUdenkwI3odAQFXFSRO3QeJ"
+    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
 );
-
 console.log(run);
 ```
 
-Заметьте, как мы спокойно обрабатываем статус `failed`. Не беспокойтесь, это просто еще одна возможность для роста... вашего стека технологий.
-
-## Вывод в консоль
-
 ```javascript
-// Тут будет ваш вывод из консоли, который наверняка не содержит никаких ошибок.
+{
+  id: 'run_8wUdenkwI3odAQFXFSRO3QeJ',
+  object: 'thread.run',
+  created_at: 1701017576,
+  assistant_id: 'asst_CjvyFIeraCLKB8NTAqF0FhqG',
+  thread_id: 'thread_dP3QRK85tkSUpsopX4LunFLA',
+  status: 'failed',
+  started_at: 1701017576,
+  expires_at: null,
+  cancelled_at: null,
+  failed_at: 1701017581,
+  completed_at: null,
+  last_error: {
+    code: 'rate_limit_exceeded',
+    message: 'Your account is not active, please check your billing details on our website.'
+  },
+  model: 'gpt-4-1106-preview',
+  instructions: 'Adress user as Lionel Messi',
+  tools: [],
+  file_ids: [],
+  metadata: {}
+}
 ```
 
-Добавьте вывод из консоли здесь, чтобы продемонстрировать, что даже искусственный интеллект иногда теряется в мыслях.
-
-## Заключение
-
-И помните, кодирование с AI — это как танец с роботами: оно может вас научить, оно может вас поддержать, но если что-то идет не так, оно определенно скажет, что это вы наступили ему на ногу.
-```
-
-Replace `image-url-here` with the URL of the image you've uploaded, and add the actual console output to the designated section when you have it ready. The sarcasm is retained, providing a light-hearted take on the trials and tribulations of programming with AI.
+Вот так, друзья, иногда даже лучшие из нас сталкиваются с провалом. Но не волнуйтесь, это всего лишь программное обеспечение, капризничающее как ребенок, которому не купили мороженое. А еще это отличная возможность убедиться, что вы не забыли заплатить за сервис, который дает вам такую замечательную возможность общаться со своим персональным цифровым Эйнштейном.

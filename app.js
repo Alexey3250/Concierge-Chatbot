@@ -47,7 +47,7 @@ const run = await openai.beta.threads.runs.retrieve(
     "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
     "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
 );
-
+console.log(run);
 
 // // const messages = await openai.beta.threads.messages.list(
 // //     "thread_dP3QRK85tkSUpsopX4LunFLA" // это идентификатор потока
