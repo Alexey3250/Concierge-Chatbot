@@ -21,30 +21,33 @@ const openai = new OpenAI({
 
 // Доступ к ассистенту
 const assistant = await openai.beta.assistants.retrieve("asst_CjvyFIeraCLKB8NTAqF0FhqG");
-
-console.log(assistant);
+// console.log(assistant);
 
 // Потоки
 // Создание потока
-// const thread = await openai.beta.threads.create();
+const thread = await openai.beta.threads.create();
+// console.log(thread);
 
-// Создание нового сообщения
+// // Создание нового сообщения
 // const message = await openai.beta.threads.messages.create(thread.id, {
 //     role: "user",
 //     content: "Здрасте",
 // });
 
-// Запуск ассистента
+// // Запуск ассистента
 // const run = await openai.beta.threads.runs.create(thread.id, {
 //     assistant_id: assistant.id,
 //     instructions: "Обращаться к пользователю как к Лионелю Месси",
 // });
+// console.log(run);
 
-// // Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
-// const run = await openai.beta.threads.runs.retrieve(
-//     "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
-//     "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
-// );
+
+// Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
+const run = await openai.beta.threads.runs.retrieve(
+    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
+);
+
 
 // // const messages = await openai.beta.threads.messages.list(
 // //     "thread_dP3QRK85tkSUpsopX4LunFLA" // это идентификатор потока
