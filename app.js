@@ -22,6 +22,8 @@ const openai = new OpenAI({
 // Доступ к ассистенту
 const assistant = await openai.beta.assistants.retrieve("asst_CjvyFIeraCLKB8NTAqF0FhqG");
 
+console.log(assistant);
+
 // Потоки
 // Создание потока
 // const thread = await openai.beta.threads.create();
@@ -38,27 +40,27 @@ const assistant = await openai.beta.assistants.retrieve("asst_CjvyFIeraCLKB8NTAq
 //     instructions: "Обращаться к пользователю как к Лионелю Месси",
 // });
 
-// Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
-const run = await openai.beta.threads.runs.retrieve(
-    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
-    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
-);
-
-// const messages = await openai.beta.threads.messages.list(
-//     "thread_dP3QRK85tkSUpsopX4LunFLA" // это идентификатор потока
+// // Получение статуса выполнения - необходимо сохранить его в базу данных и извлечь
+// const run = await openai.beta.threads.runs.retrieve(
+//     "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+//     "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
 // );
 
-// messages.body.data.forEach((message) => {
-//     console.log(message.content);
+// // const messages = await openai.beta.threads.messages.list(
+// //     "thread_dP3QRK85tkSUpsopX4LunFLA" // это идентификатор потока
+// // );
+
+// // messages.body.data.forEach((message) => {
+// //     console.log(message.content);
+// // });
+
+// const logs = await openai.beta.threads.runs.steps.list(
+//     "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
+//     "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
+// );
+
+// logs.body.data.forEach((log) => {
+//     console.log(log.step_details);
 // });
 
-const logs = await openai.beta.threads.runs.steps.list(
-    "thread_dP3QRK85tkSUpsopX4LunFLA", // это идентификатор потока
-    "run_8wUdenkwI3odAQFXFSRO3QeJ" // это идентификатор выполнения
-);
-
-logs.body.data.forEach((log) => {
-    console.log(log.step_details);
-});
-
-console.log(logs);
+// console.log(logs);

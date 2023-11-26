@@ -36,6 +36,22 @@ const openai = new OpenAI({
 const assistant = await openai.beta.assistants.retrieve("asst_CjvyFIeraCLKB8NTAqF0FhqG");
 ```
 
+```javascript
+{
+  id: 'asst_CjvyFIeraCLKB8NTAqF0FhqG',
+  object: 'assistant',
+  created_at: 1699681739,
+  name: 'ИИ - Консьерж',
+  description: null,
+  model: 'gpt-4-1106-preview',
+  instructions: "Ты- ассистент, ну и отвечай как положено ... ",
+  tools: [],
+  file_ids: [],
+  metadata: {}
+}
+```
+
+
 С таким ассистентом можно даже не искать ответы в Google, он знает всё... или почти всё.
 
 ## Запросы и логи
