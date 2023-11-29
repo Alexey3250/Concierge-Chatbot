@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "es2019", // Choose a target that matches the Node.js version you're using
+      "module": "commonjs", // Node.js uses CommonJS
+      "outDir": "./dist", // Where to output the compiled JS files
+      "strict": true, // Enable all strict type-checking options
+      "esModuleInterop": true, // Enables compatibility with Babel-style module imports
+      "skipLibCheck": true, // Skip type checking of declaration files
+      "forceConsistentCasingInFileNames": true // Ensure consistent casing in file names
+    },
+    "include": ["./**/*.ts"], // Include all TypeScript files in the project
+    "exclude": ["node_modules"] // Exclude the node_modules directory
+  }

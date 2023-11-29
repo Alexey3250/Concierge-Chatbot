@@ -9,11 +9,11 @@ export class OpenAIChatService {
 
   constructor() {
     // Загрузка ключа API из переменных окружения
-    const secretKey = "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";
+    const secretKey = "sk-123";
     // Создание экземпляра OpenAI
     this.openai = new OpenAI({ apiKey: secretKey });
     // Идентификатор помощника OpenAI
-    this.assistantId = "asst_CjvyFIeraCLKB8NTAqF0FhqG"; // Замените на идентификатор вашего помощника
+    this.assistantId = "123"; // Замените на идентификатор вашего помощника
   }
 
   // Метод отправки сообщения в OpenAI и получения ответа
